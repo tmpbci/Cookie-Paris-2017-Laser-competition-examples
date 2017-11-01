@@ -1,4 +1,5 @@
 # Cookie-Paris-2017-Laser-competition-examples
+http://cookie.paris
 New mix of code examples to learn etherdream controllers.
 
 One can also browse to :
