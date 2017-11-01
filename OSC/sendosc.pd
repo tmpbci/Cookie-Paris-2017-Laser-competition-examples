@@ -1,0 +1,134 @@
+#N canvas 466 75 783 471 10;
+#X obj 337 283 sendOSC;
+#X floatatom 337 310 5 0 0 0 - - -;
+#X floatatom 391 312 5 0 0 0 - - -;
+#X text 382 330 bundleDepth;
+#X msg 354 244 disconnect;
+#X msg 130 70 send /net/netmask 255.255.255.0;
+#X msg 106 46 send /net/gateway 192.168.1.1;
+#X msg 167 92 disconnect;
+#X obj 726 273 nbx 3 14 0 255 0 0 \$0-A \$0-B empty 0 -8 1 10 -262144
+-1 -1 99 256;
+#X obj 724 -43 vsl 33 256 0 255 0 1 \$0-A \$0-B empty 0 -9 0 10 -228856
+-1 -1 9900 0;
+#X obj 728 239 int;
+#N canvas 125 22 274 564 T 0;
+#X obj 99 432 t f b;
+#X obj 100 381 nbx 3 14 0 255 0 0 \$0-A \$0-B empty 0 -8 1 10 -262144
+-1 -1 104 256;
+#X obj 100 106 nbx 3 14 1 512 0 1 \$0-A \$0-B empty 0 -8 1 10 -262144
+-1 -1 124 256;
+#X obj 126 459 int;
+#X obj 100 122 vsl 33 256 0 255 0 1 \$0-A \$0-B empty 0 -9 0 10 -228856
+-1 -1 10400 0;
+#X obj 100 38 inlet;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 122 101 cnv 4 10 4 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 101 396 cnv 4 10 4 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 122 396 cnv 4 10 4 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 143 38 inlet;
+#X obj 49 537 outlet;
+#X obj 168 536 outlet;
+#X msg 18 237 set \$1;
+#X obj 100 409 int;
+#X obj 100 72 int;
+#X obj 41 353 int;
+#X text 9 389 DMX Channel <-;
+#X text 135 390 -> DMX Data;
+#X text 21 400 1..512;
+#X text 158 401 0..255;
+#X text 8 95 DMX Channel ->;
+#X text 136 95 <- DMX Data;
+#X text 19 108 1..512;
+#X text 156 109 0..255;
+#X obj 99 509 pack 1 2;
+#X obj 99 537 s \$0-DMX1;
+#X obj 11 37 r \$0-DMX1Trig;
+#X obj 139 171 cnv 15 120 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#X text 147 170 A utiliser avec;
+#X text 149 183 MM Control-DMX;
+#X text 10 9 MM-Tranche-DMX;
+#X obj 214 528 cnv 15 48 25 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 350 196 308 136 ??? 0;
+#X obj -6 87 cnv 15 300 38 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X obj -6 10 cnv 18 300 70 empty empty ARGOPdMiniModules 3 10 1 14
+-4033 -1 1.04858e+06;
+#X obj 13 31 cnv 10 10 10 empty empty Gerard 0 5 1 11 -4033 -1 1.04858e+06
+;
+#X obj 55 30 cnv 10 10 10 empty empty Paresys 0 5 1 11 -4033 -1 1.04858e+06
+;
+#X text -1 89 Construit sous / Build under Pd 0.42.5-extended;
+#X obj 6 43 pddp/pddplink http://pagesperso-orange.fr/Paresys/ARGOPd/
+;
+#X obj 6 58 pddp/pddplink http://gerard.paresys.free.fr/ARGOPd/;
+#X obj 46 105 pddp/pddplink http://puredata.info/downloads;
+#X restore 218 532 pd ???;
+#X text 156 247 cf ExMM180-DMX;
+#X text 138 136 9 4 2012;
+#X connect 0 0 12 0;
+#X connect 0 0 25 0;
+#X connect 0 1 3 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 1;
+#X connect 2 0 11 0;
+#X connect 3 0 11 0;
+#X connect 3 0 25 1;
+#X connect 4 0 16 0;
+#X connect 5 0 15 0;
+#X connect 10 0 4 0;
+#X connect 13 0 4 0;
+#X connect 14 0 0 0;
+#X connect 14 0 13 0;
+#X connect 15 0 2 0;
+#X connect 16 0 1 0;
+#X connect 25 0 26 0;
+#X connect 27 0 4 0;
+#X coords 0 -1 1 1 33 301 1 100 100;
+#X restore 669 -54 pd T;
+#X msg 385 166 send /ilda/play ildatstb.ild;
+#X msg 87 21 send /net/ipaddr 10.0.2.34;
+#X msg 348 28 send /midi/note/1 0.2 100 1;
+#X msg 355 78 send /7/push1 1;
+#X msg 330 2 connect 127.0.0.1 8000;
+#X msg 390 210 send /ilda/8/play 2;
+#X msg 374 118 send /ilda/pps 25000;
+#X msg 366 99 send /ilda/fps 25;
+#X msg 379 140 send /ilda/play fisch.ild;
+#X msg 437 234 send /ilda/play maze.ild;
+#X msg 387 186 send /ilda/12/play 2;
+#X msg 425 259 send /ilda/play resetild;
+#X msg 85 191 send /stop;
+#X msg 85 151 send /geom/size 1;
+#X msg 355 49 send /ilda/repeat 0;
+#X msg 49 -2 connect 192.168.1.3 6000;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 12 0 0 0;
+#X connect 13 0 0 0;
+#X connect 14 0 0 0;
+#X connect 15 0 0 0;
+#X connect 16 0 0 0;
+#X connect 17 0 0 0;
+#X connect 18 0 0 0;
+#X connect 19 0 0 0;
+#X connect 20 0 0 0;
+#X connect 21 0 0 0;
+#X connect 22 0 0 0;
+#X connect 23 0 0 0;
+#X connect 24 0 0 0;
+#X connect 25 0 0 0;
+#X connect 26 0 0 0;
+#X connect 27 0 0 0;

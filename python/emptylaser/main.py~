@@ -1,0 +1,49 @@
+# coding=UTF_8
+import pygame
+
+# STDLIB
+import math
+import random
+import itertools
+import sys
+import thread
+import time
+
+import globalVars
+from globalVars import *
+import playarea
+
+
+pygame.init()
+
+screen = pygame.display.set_mode(screen_size)
+pygame.display.set_caption("Laser Hexagon PROTO")
+clock = pygame.time.Clock()
+
+playing = True
+
+play_area = playarea.PlayArea()
+
+
+
+while playing:
+
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT:
+			playing = False
+		#elif event.type == 
+ 	
+	keystates = pygame.key.get_pressed()
+	if keystates[pygame.K_ESCAPE]:
+		playing = False
+
+
+	play_area.Render(screen)
+
+	pygame.display.flip()
+	# TODO : rendre indépendante la fréquence de rafraîchissement de l'écran par
+	# rapport à celle de l'animation du jeu
+	clock.tick(50)
+
+pygame.quit()
+

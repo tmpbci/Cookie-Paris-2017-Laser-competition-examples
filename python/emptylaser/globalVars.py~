@@ -1,0 +1,11 @@
+# coding=UTF_8
+
+screen_size = [800,600]
+
+
+play_area_rsize = 500
+black_hole_rsize = 40
+
+default_spokes = range(0,359,60)
+default_side_count = 6
+ 
